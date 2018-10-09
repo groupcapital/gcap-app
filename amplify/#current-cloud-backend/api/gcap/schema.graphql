@@ -1,0 +1,15 @@
+enum PropertyType {
+    one
+    two
+    three
+}
+
+type SecuredLoan @model {
+  id: ID!
+  name: String!
+  description: String
+  borrowing_amount: Float!
+  colleteral_value: Float!
+  closing_date: String!
+  propery_type: PropertyType!
+}

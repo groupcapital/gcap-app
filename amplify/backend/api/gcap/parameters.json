@@ -1,0 +1,13 @@
+{
+    "AppSyncApiName": "gcap",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognito35fda63d",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "schemaGraphql": "s3://gcap-20180919215334-deployment/amplify-appsync-files/schema.graphql.1539113433959",
+    "ResolverBucket": "gcap-20180919215334-deployment",
+    "ResolverRootKey": "amplify-appsync-files",
+    "DeploymentTimestamp": "1539113433959"
+}

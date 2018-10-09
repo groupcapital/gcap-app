@@ -1,0 +1,20 @@
+{
+    "projectName": "gcap",
+    "projectPath": "/Users/paul.szabo/igor/gcap",
+    "defaultEditor": "code",
+    "frontendHandler": {
+        "javascript": "/Users/paul.szabo/.config/yarn/global/node_modules/amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "react",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "build",
+            "BuildCommand": "npm run build",
+            "StartCommand": "npm run start"
+        }
+    },
+    "providers": {
+        "awscloudformation": "/Users/paul.szabo/.config/yarn/global/node_modules/amplify-provider-awscloudformation"
+    }
+}

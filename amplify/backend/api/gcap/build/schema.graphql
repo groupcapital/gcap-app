@@ -1,0 +1,130 @@
+type Mutation {
+  createSecuredLoan(input: CreateSecuredLoanInput!): SecuredLoan
+  updateSecuredLoan(input: UpdateSecuredLoanInput!): SecuredLoan
+  deleteSecuredLoan(input: DeleteSecuredLoanInput!): SecuredLoan
+}
+
+type Query {
+  getSecuredLoan(id: ID!): SecuredLoan
+  listSecuredLoans(filter: ModelSecuredLoanFilterInput, limit: Int, nextToken: String): ModelSecuredLoanConnection
+}
+
+type Subscription {
+  onCreateSecuredLoan: SecuredLoan @aws_subscribe(mutations: ["createSecuredLoan"])
+  onUpdateSecuredLoan: SecuredLoan @aws_subscribe(mutations: ["updateSecuredLoan"])
+  onDeleteSecuredLoan: SecuredLoan @aws_subscribe(mutations: ["deleteSecuredLoan"])
+}
+
+type SecuredLoan {
+  id: ID!
+  name: String!
+  description: String
+  borrowing_amount: Float!
+  colleteral_value: Float!
+  closing_date: String!
+  propery_type: PropertyType!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelSecuredLoanConnection {
+  items: [SecuredLoan]
+  nextToken: String
+}
+
+input ModelStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input ModelIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input ModelIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+}
+
+input ModelFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  contains: Float
+  notContains: Float
+  between: [Float]
+}
+
+input ModelBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelSecuredLoanFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  description: ModelStringFilterInput
+  borrowing_amount: ModelFloatFilterInput
+  colleteral_value: ModelFloatFilterInput
+  closing_date: ModelStringFilterInput
+  and: [ModelSecuredLoanFilterInput]
+  or: [ModelSecuredLoanFilterInput]
+  not: ModelSecuredLoanFilterInput
+}
+
+input CreateSecuredLoanInput {
+  name: String!
+  description: String
+  borrowing_amount: Float!
+  colleteral_value: Float!
+  closing_date: String!
+}
+
+input UpdateSecuredLoanInput {
+  id: ID!
+  name: String
+  description: String
+  borrowing_amount: Float
+  colleteral_value: Float
+  closing_date: String
+}
+
+input DeleteSecuredLoanInput {
+  id: ID
+}
+
+enum PropertyType {
+  one
+  two
+  three
+}

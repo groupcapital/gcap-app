@@ -1,4 +1,8 @@
 import React from 'react'
+import Amplify from 'aws-amplify';
+import aws_exports from './aws-exports';
+import { withAuthenticator } from 'aws-amplify-react';
+
 import {
   Box,
   Flex,
@@ -7,7 +11,9 @@ import {
   Button
 } from 'rebass'
 
-export default class App extends React.Component {
+Amplify.configure(aws_exports);
+
+class App extends React.Component {
   render() {
     return (
       <Text
@@ -26,4 +32,5 @@ export default class App extends React.Component {
     )
   }
 }
+export default withAuthenticator(App)
 
